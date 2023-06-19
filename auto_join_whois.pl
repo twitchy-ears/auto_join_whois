@@ -35,7 +35,7 @@ sub whois_and_extract {
 
   # Extract the first key matching each of these
   foreach my $key (qw(netname organization organisation route origin country)) {
-    my @d = grep(/$key/i, @out);
+    my @d = grep(/^\s*${key}:\s+/i, @out);
 
     next if (! defined($d[0]) || ! $d[0]);
 
